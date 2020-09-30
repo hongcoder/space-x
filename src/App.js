@@ -1,9 +1,9 @@
 import React from 'react';
 import './App.css';
 import styled from "styled-components"
-import { BrowserRouter as Router, Route, Link } from 'react-router-dom'
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom'
 import TotalSection from "./sections/TotalSection"
-
+import Falcon from "./Falcons/Falcon"
 
 
 const Body =  styled.div`
@@ -28,9 +28,16 @@ function App() {
   return (
     <Router>
       <Body>
-        <Wrapper>
-          <TotalSection />
-        </Wrapper>
+        <Switch>
+          <Wrapper>
+            <Route exact path="/">
+              <TotalSection />
+            </Route>
+            <Route path="/falcon">
+              <Falcon />
+            </Route>
+          </Wrapper>
+        </Switch>
       </Body>
     </Router>
   );
