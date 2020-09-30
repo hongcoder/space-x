@@ -57,19 +57,13 @@ const H2 = styled.h2`
 `
 
 const A =styled.a`
-  transition:color 1s cubic-bezier(.25,1,.25,1),background-color 1s cubic-bezier(.25,1,.25,1)color 1s cubic-bezier(.25,1,.25,1),background-color 1s cubic-bezier(.25,1,.25,1);
   position: relative;
   min-width: 130px;
   padding: 0 15px;
   margin: 30px 0 0;
   border: 2px solid #fff;
   display: inline-block;
-  text-decoration: none;
-
-  &:hover, &:active, &::visited {
-    color: ##fff;
-    text-decoration: none;
-  }
+  cursor: pointer;
 `
 
 const Hover = styled.div`
@@ -92,6 +86,9 @@ const Div = styled.div`
   text-transform: uppercase;
   width:100%;
   transition: color .5s cubic-bezier(.cubic-bezier(0.19, 1, 0.22, 1));;
+  &:hover{
+    color: black;
+  }
 `
 
 
@@ -112,7 +109,7 @@ function SectionSix() {
           <InnerLetter>
             <H2>crew dragon docking simulator</H2>
             <p>Crew Dragon is designed to autonomously dock and undock with the International Space Station. However, the crew can take manual control of the spacecraft if necessary.</p>
-            <A href="/">
+            <A className="hover" href="/">
               <Hover />
               <Div>try it</Div>
             </A>

@@ -1,8 +1,7 @@
-import React, { useState, useEffect } from 'react'
-import { BrowserRouter as Router, Link } from 'react-router-dom'
+import React, { useState } from 'react'
 import styled from "styled-components"
 import RightNav from "./RightNav"
-import "./Burger.scss"
+
 
 /// https://kim-mj.tistory.com/282 styled-component 반응형 구현 좋은 예시
 

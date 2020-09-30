@@ -15,17 +15,6 @@ const Header = styled.div`
   text-align:center;
   display:block;
 `
-// const headInner = {
-//   display: "block",
-//   position: "relative",
-//   width: "100%",
-//   height: "100%",
-//   maxWidth: 1400,
-//   margin: "0 auto",
-//   textAlign: "left"
-// }
-
-// style={headInner}
 
 function Navigation() {
   return (

@@ -1,14 +1,10 @@
 import React from 'react';
 import './App.css';
 import styled from "styled-components"
-import SectionOne from './sections/SectionOne';
-import SectionTwo from './sections/SectionTwo';
-import Navigation from "./navigation/Navigation"
-import SectionThree from './sections/SectionThree';
-import SectionFour from './sections/SectionFour';
-import SectionFive from './sections/SectionFive';
-import SectionSix from './sections/SectionSix';
-import SectionSeven from './sections/SectionSeven';
+import { BrowserRouter as Router, Route, Link } from 'react-router-dom'
+import TotalSection from "./sections/TotalSection"
+
+
 
 const Body =  styled.div`
   margin: 0;
@@ -30,18 +26,13 @@ const Wrapper = styled.div`
 
 function App() {
   return (
-    <Body>
-      <Wrapper>
-        <Navigation />
-        <SectionOne />
-        <SectionTwo />
-        <SectionThree />
-        <SectionFour />
-        <SectionFive />
-        <SectionSix />
-        <SectionSeven />
-      </Wrapper>
-    </Body>
+    <Router>
+      <Body>
+        <Wrapper>
+          <TotalSection />
+        </Wrapper>
+      </Body>
+    </Router>
   );
 }
 

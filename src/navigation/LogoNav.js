@@ -1,7 +1,8 @@
 import React from 'react';
-import { BrowserRouter as Router, Link } from 'react-router-dom'
+import { BrowserRouter as Router, Link, Route } from 'react-router-dom'
 import "./LogoNav.scss"
 import styled from 'styled-components'
+import Falcon from "../Falcons/Falcon"
 
 const logoColor = { fill: "white"}
 
@@ -92,7 +93,7 @@ function LogoNav() {
         </Link>
         <Div>
           <Ul>
-            <li><Link to="/">FALCON 9</Link></li>
+            <li><Link to="/falcon">FALCON 9</Link></li>
             <li><Link to="/">FALCON HEAVY</Link></li>
             <li><Link to="/">DRAGON</Link></li>
             <li><Link to="/">STARSHIP</Link></li>

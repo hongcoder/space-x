@@ -58,21 +58,17 @@ const H2 = styled.h2`
   letter-spacing: -1px;
 `
 
+
 const A =styled.a`
-  transition:color 1s cubic-bezier(.25,1,.25,1),background-color 1s cubic-bezier(.25,1,.25,1)color 1s cubic-bezier(.25,1,.25,1),background-color 1s cubic-bezier(.25,1,.25,1);
   position: relative;
   min-width: 130px;
   padding: 0 15px;
   margin: 30px 0 0;
   border: 2px solid #fff;
   display: inline-block;
-  text-decoration: none;
-
-  &:hover, &:active, &::visited {
-    color: ##fff;
-    text-decoration: none;
-  }
+  cursor: pointer;
 `
+
 
 const Hover = styled.div`
   position: absolute;
@@ -97,6 +93,9 @@ const Span = styled.span`
   transition: color .5s cubic-bezier(0.19, 1, 0.22, 1);
   position: relative;
   display: inline-block;
+  &:hover{
+    color: black;
+  }
 `
 
 
@@ -109,7 +108,7 @@ function SectionSeven() {
           <H3>05/01/20</H3>
           <H2>nasa selects lunar optimized starship</H2>
           <p>NASA selected SpaceX to develop a lunar optimized Starship to transport crew between lunar orbit and the surface of the Moon as part of NASA’s Artemis program.</p>
-          <A href="/">
+          <A className="hover" href="/">
             <Hover />
             <Span>Update</Span>
           </A>

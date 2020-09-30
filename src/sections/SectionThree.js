@@ -36,7 +36,7 @@ const InnerLetter = styled.div`
   max-width: 520px;
   position: absolute;
   bottom: 15%;
-  right: 50px;
+  left: 50px;
   display:block;
   @media screen and (max-width: 1200px) {
     max-width: 420px;
@@ -57,21 +57,14 @@ const H2 = styled.h2`
   margin-bottom: 20px;
   letter-spacing: -1px;
 `
-
 const A =styled.a`
-  transition:color 1s cubic-bezier(.25,1,.25,1),background-color 1s cubic-bezier(.25,1,.25,1)color 1s cubic-bezier(.25,1,.25,1),background-color 1s cubic-bezier(.25,1,.25,1);
   position: relative;
   min-width: 130px;
   padding: 0 15px;
   margin: 30px 0 0;
   border: 2px solid #fff;
   display: inline-block;
-  text-decoration: none;
-
-  &:hover, &:active, &::visited {
-    color: ##fff;
-    text-decoration: none;
-  }
+  cursor: pointer;
 `
 
 const Hover = styled.div`
@@ -83,10 +76,9 @@ const Hover = styled.div`
   background-color: #fff;
   transform-origin: top center;
   transform: scale3d(1,0,1);
-  transition: transform .6s cubic-bezier(.19,1,.22,1),-webkit-transform .6s cubic-bezier(.19,1,.22,1);
-  display: block;
+  cursor: pointer;
+  transition: transform .6s cubic-bezier(.19,1,.22,1);
 `
-
 
 const Span = styled.span`
   font: 14px/50px D-DIN-Bold, Arial, Verdana, sans-serif;
@@ -94,11 +86,14 @@ const Span = styled.span`
   text-transform: uppercase;
   width: 100%;
   text-align: center;
-  transition: color .5s cubic-bezier(0.19, 1, 0.22, 1);
   position: relative;
   display: inline-block;
-`
+  &:hover{
+    color: black;
+  }
+    transition: color .5s cubic-bezier(.19, 1, .22, 1);
 
+`
 
 function SectionThree() {
   return(
@@ -108,7 +103,7 @@ function SectionThree() {
         <InnerLetter>
           <H3>mission complete</H3>
           <H2>crew dragon returns from space station</H2>
-          <A href="/">
+          <A className="hover" href="/">
             <Hover />
             <Span>replay</Span>
           </A>
