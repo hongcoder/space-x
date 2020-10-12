@@ -1,13 +1,17 @@
-import React from 'react';
+import React, {useRef, useEffect} from 'react';
 import styled from "styled-components"
+import {TweenMax, Power3} from "gsap"
 import Background from '../images/falcon1.webp'
 import "./Falcon.scss"
+
+// 스크롤 매직 component 써서 다음 세션 들어갈 때 효과 나오게 할 수 없나?
+
 
 
 const Img = styled.div`
   background-image: url(${Background});
   visibility: inherit;
-  opacity: 1;
+  opacity: 0;
   position: absolute;
   height: 100%;
   margin: 0;
@@ -45,9 +49,7 @@ const InnerLetter = styled.div`
 `
 
 const H1 = styled.h1`
-  visibility: inherit;
-  opacity: 1;
-  transform:translate3d(0px, 0px, 0px);
+  opacity: 0;
   display: block;
   margin-bottom: 20px;
   letter-spacing: -1px;
@@ -56,19 +58,58 @@ const H1 = styled.h1`
 
 const H3 = styled.h3`
   visibility: inherit;
-  opacity: 1;
-  transform:translate3d(0px, 0px, 0px);
+  opacity: 0;
   display: block;
 `
 
+
+
 function One() {
+  let image = useRef(null);
+  let textOne = useRef(null);
+  let textTwo = useRef(null);
+
+  useEffect(() => {
+    TweenMax.to(
+      image,
+      7,
+      {
+        opacity: 1,
+        y: -20,
+        ease: Power3.easeOut
+      }
+    )
+    TweenMax.to(
+      textOne,
+      3,
+      {
+        opacity:1,
+        y:-20,
+        ease:Power3.easeOut,
+        delay: .2
+      }
+    )
+    TweenMax.to(
+      textTwo,
+      3,
+      {
+        opacity:1,
+        y:-20,
+        ease:Power3.easeOut,
+        delay: .5
+      }
+    )
+  }, [])
+
+
+
   return(
     <div className="section">
-      <Img />
+      <Img ref={el => {image = el}} />
       <InnerSection>
         <InnerLetter>
-          <H1>FALCON 9</H1>
-          <H3>First orbital class rocket capable of reflight</H3>
+          <H1 ref={el => {textOne = el}}>FALCON 9</H1>
+          <H3 ref={el => {textTwo = el}}>First orbital class rocket capable of reflight</H3>
         </InnerLetter>
       </InnerSection>
     </div>

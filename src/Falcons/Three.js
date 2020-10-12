@@ -1,12 +1,17 @@
-import React from 'react';
+import React, {useRef, useEffect} from 'react';
 import styled from "styled-components"
-import Background from '../images/falcon3.webp'
+import {Link} from 'react-router-dom';
+import {TweenMax, Power3} from "gsap"
+import Background from '../images/falcon3.webp';
 import "./Falcon.scss"
 
 
+// this is should be scrolling
+// if click the page, go to youtube url
 const Img = styled.div`
   background-image: url(${Background});
   visibility: inherit;
+  cursor: pointer;
   opacity: 1;
   position: absolute;
   width: 100%;
@@ -20,6 +25,8 @@ const Img = styled.div`
   height: 100%;
   overflow: hidden;
 `
+
+
 
 const InnerSection = styled.div`
   height: 944px;
@@ -36,81 +43,57 @@ const InnerLetter = styled.div`
   max-width: 520px;
   position: absolute;
   bottom: 15%;
-  right: 50px;
+  left: 50px;
   display:block;
   @media screen and (max-width: 1200px) {
     max-width: 420px;
   }
 `
 
-const H3 = styled.h3`
-  color: #fff;
-  position: relative;
-  display: block;
-`
 
-
-const H1 = styled.h1`
-  font-size: 48px;
-  line-height:48px;
-  display: block;
-  margin-bottom: 20px;
-  letter-spacing: -1px;
-`
-
-const A =styled.a`
-  position: relative;
-  min-width: 130px;
-  padding: 0 15px;
-  margin: 30px 0 0;
-  border: 2px solid #fff;
-  display: inline-block;
-  cursor: pointer;
-`
-
-
-const Hover = styled.div`
-  position: absolute;
-  top:0;
-  left:0;
-  width:100%;
-  height:100%;
-  background-color: #fff;
-  transform-origin: top center;
-  transform: scale3d(1,0,1);
-  cursor: pointer;
-  transition: transform .6s cubic-bezier(.19,1,.22,1);
-`
-
-
-const Span = styled.span`
-  font: 14px/50px D-DIN-Bold, Arial, Verdana, sans-serif;
-  color: #fff;
-  text-transform: uppercase;
-  width: 100%;
-  text-align: center;
-  position: relative;
-  display: inline-block;
-  transition: color .5s cubic-bezier(.19, 1, .22, 1);
-  &:hover{
-    color: black;
-  }
-
-`
 
 
 function Three() {
+  let textOne = useRef(null);
+  let textTwo = useRef(null);
+
+  useEffect(() => {
+    TweenMax.to(
+      textOne,
+      3,
+      {
+        opacity:1,
+        y:-20,
+        ease:Power3.easeOut,
+        delay: .2
+      }
+    )
+    TweenMax.to(
+      textTwo,
+      3,
+      {
+        opacity:1,
+        y:-20,
+        ease:Power3.easeOut,
+        delay: .5
+      }
+    )
+  }, [])
+
   return(
     <div className="section">
-      <Img />
+      <Img>
+        <a href="https://spacex.com" className="youtube" />
+        <svg width="64.025" height="81.486" viewBox="0 0 64.025 81.486">
+          <g>
+            <path d="M8,5V86.486L72.025,45.743Z" transform="translate(-8, -5)" />
+          </g>
+        </svg>
+      </Img>
       <InnerSection>
         <InnerLetter>
-          <H3>Upcoming launch</H3>
-          <H1>Starlink mission</H1>
-          <A className="hover" href="/">
-            <Hover />
-            <Span>Update</Span>
-          </A>
+          <h3 ref={el => {textOne = el}}>Video</h3>
+          <h2 ref={el => {textTwo = el}}>falcon 9 in flight</h2>
         </InnerLetter>
       </InnerSection>
     </div>

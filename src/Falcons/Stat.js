@@ -1,7 +1,7 @@
 import React from 'react'
 import "./Falcon.scss"
 import styled from "styled-components"
-
+import Countup from "react-countup";
 
 const Content = styled.div`
   width:90%;
@@ -18,15 +18,15 @@ function Stat(){
     <div className="section">
       <Content>
         <div className="numbers">
-          <span className="number">92</span>
+          <Countup start={0} end={92} duration={10} className="number"  />
           <span className="label">Total launches</span>
         </div>
         <div className="numbers">
-          <span className="number">53</span>
+          <Countup start={0} end={53} duration={10} className="number"  />
           <span className="label">total landings</span>
         </div>
         <div className="numbers">
-          <span className="number">38</span>
+          <Countup start={0} end={38} duration={10} className="number"  />
           <span className="label">reflown rockets</span>
         </div>
       </Content>

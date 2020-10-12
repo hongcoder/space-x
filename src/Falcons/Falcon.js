@@ -6,6 +6,8 @@ import Two from "./Two"
 import Three from "./Three"
 import Four from "./Four"
 import Five from "./Five"
+import Six from "./Six"
+
 
 function Falcon() {
   return (
@@ -17,6 +19,7 @@ function Falcon() {
       <Three />
       <Four />
       <Five />
+      <Six />
     </>
   )
 }
